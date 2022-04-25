@@ -1,26 +1,26 @@
 function addTask() {
-    let task = document.getElementById('task').value;
-    let task2 = document.getElementById('task2').value;
-    let taskList = JSON.parse(window.localStorage.getItem('taskList'));
+    let pass = document.getElementById('pass').value;
+    let pass2 = document.getElementById('pass2').value;
+    let passList = JSON.parse(window.localStorage.getItem('passList'));
     try {
-        taskList.push(task + task2);
+        passList.push(pass);
 
     } catch {
-        taskList = Array();
-        taskList.push(task + task2);
-
+        passList = Array();
+        passList.push(pass);
     }
+    let newTask = pass.concat(pass2);
     
 
-    window.localStorage.setItem('taskList', JSON.stringify(taskList));
-    document.getElementById('task' + 'task2').value = "";
+    window.localStorage.setItem('passList', JSON.stringify(passList));
+    document.getElementById('pass').value = "";
 
     showTaskList();
 }
 function showTaskList() {
-    let taskArray = JSON.parse(window.localStorage.getItem('taskList'));
+    let taskArray = JSON.parse(window.localStorage.getItem('passList'));
     if(taskArray === null) return;
-    let taskList = document.getElementById('taskList');
+    let passList = document.getElementById('passList');
     let htmlBuffer = "";
     htmlBuffer += "<ul>";
     for (let i = 0; i < taskArray.length; i++) {
@@ -28,14 +28,14 @@ function showTaskList() {
                         + taskArray[i] + "</li>";
     }
     htmlBuffer += "</ul>";
-    taskList.innerHTML = htmlBuffer;
+    passList.innerHTML = htmlBuffer;
 }
 function removeTask(i) {
-    let taskArray = JSON.parse(window.localStorage.getItem('taskList'));
+    let taskArray = JSON.parse(window.localStorage.getItem('passList'));
     console.log(taskArray);
     taskArray.splice(i, 1);
     console.log(taskArray);
 
-    window.localStorage.setItem('taskList', JSON.stringify(taskArray));
+    window.localStorage.setItem('passList', JSON.stringify(taskArray));
     showTaskList();
 }
