@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passWD manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pass">
+    <div class="header">
+        <h1>menadżer haseł</h1>
+        <input type="text" class="log-input" placeholder="wpisz login">
+        <input type="text" class="pass-input" placeholder="Wpisz hasło">
+        
+        <button class="btn-add">Add</button>
+    </div>
+    <div class="passlist">
+        <h3>Lista haseł:</h3>
+        <p class="error-info"></p>
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+
+<div class="popup">
+    <h3>Edytuj zadanie:</h3>
+    <div class="popup-body">
+        <p class="popup-info"></p>
+        <input type="text" class="popup-input" placeholder="Wprowadź nową treść zadania...">
+        <button class="popup-btn accept">Zatwierdź</button>
+        <button class="popup-btn cancel">Anuluj</button>
+    </div>
+
+    <script src="./scr.js"></script>
+</div>
+</body>
+</html>

@@ -1,20 +1,22 @@
 function addTask() {
-    let pass = document.getElementById('pass').value;
-    let pass2 = document.getElementById('pass2').value;
-    let passList = JSON.parse(window.localStorage.getItem('passList'));
+    const pass = document.getElementById('pass').value;
+    const pass2 = document.getElementById('pass2').value;
+    const passList = JSON.parse(window.localStorage.getItem('passList'));
+    const newPass = pass + pass2
+    console.log(newPass);
     try {
-        passList.push(pass);
+        passList.push(newPass);
 
     } catch {
         passList = Array();
-        passList.push(pass);
+        passList.push(newPass);
     }
-    let newTask = pass.concat(pass2);
-    
+   
 
     window.localStorage.setItem('passList', JSON.stringify(passList));
     document.getElementById('pass').value = "";
-
+    document.getElementById('pass2').value = "";
+    
     showTaskList();
 }
 function showTaskList() {
@@ -25,7 +27,7 @@ function showTaskList() {
     htmlBuffer += "<ul>";
     for (let i = 0; i < taskArray.length; i++) {
         htmlBuffer += "<li><button id=\"buttonadd\" onclick=\"removeTask("+i+")\">Usuń</button>"
-                        + taskArray[i] + "</li>";
+                + taskArray[i] + "</li>";
     }
     htmlBuffer += "</ul>";
     passList.innerHTML = htmlBuffer;
